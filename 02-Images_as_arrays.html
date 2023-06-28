@@ -1,50 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>2. Images as arrays &#8212; Image processing with Python for beginners</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,317 +63,278 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-Images_as_arrays';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. More on images" href="03-More_on_images.html" />
     <link rel="prev" title="1. Python and notebook basics" href="01-Python_essentials.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Image processing with Python for beginners</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
-   Image processing for beginners
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01-Python_essentials.html">
-   1. Python and notebook basics
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   2. Images as arrays
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-More_on_images.html">
-   3. More on images
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-Thresholding.html">
-   4. Thresholding
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-Filtering.html">
-   5. Filtering
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-Regions.html">
-   6. Region properties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07-Pipeline.html">
-   7. Creating a pipeline
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08-Logical_flow.html">
-   8. Loops and conditions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09-Advanced.html">
-   9. Advanced examples: cellpose and napari
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Appendix_Functions.html">
-   Methods and functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Appendix_Structures.html">
-   Python structures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cheatsheet.html">
-   Cheetsheet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Demo.html">
-   Demo
-  </a>
- </li>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image processing with Python for beginners</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Image processing for beginners
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-Python_essentials.html">1. Python and notebook basics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Images as arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-More_on_images.html">3. More on images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Thresholding.html">4. Thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-Filtering.html">5. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-Regions.html">6. Region properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-Pipeline.html">7. Creating a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-Logical_flow.html">8. Loops and conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-Advanced.html">9. Advanced examples: cellpose and napari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix_Functions.html">Methods and functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix_Structures.html">Python structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cheatsheet.html">Cheetsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Demo.html">Demo</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/02-Images_as_arrays.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-Images_as_arrays.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
         
-        
-        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-        </div>
+<div class="article-header-buttons">
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#accessing-values">
-   Accessing values
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#accessing-parts-of-the-array">
-   Accessing parts of the array
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-ways-of-creating-arrays">
-   Other ways of creating arrays
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mathematics-with-arrays">
-   Mathematics with arrays
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basic-calculus">
-     Basic calculus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numpy-functions">
-     Numpy functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operations-between-arrays">
-     Operations between arrays
-    </a>
-   </li>
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02-Images_as_arrays.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logical-operations-and-indexing">
-   Logical operations and indexing
-  </a>
- </li>
-</ul>
+</div>
 
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2. Images as arrays</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-values">Accessing values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-parts-of-the-array">Accessing parts of the array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ways-of-creating-arrays">Other ways of creating arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics-with-arrays">Mathematics with arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-calculus">Basic calculus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-functions">Numpy functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-between-arrays">Operations between arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations-and-indexing">Logical operations and indexing</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>2. Images as arrays</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#accessing-values">
-   Accessing values
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#accessing-parts-of-the-array">
-   Accessing parts of the array
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-ways-of-creating-arrays">
-   Other ways of creating arrays
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mathematics-with-arrays">
-   Mathematics with arrays
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basic-calculus">
-     Basic calculus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numpy-functions">
-     Numpy functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operations-between-arrays">
-     Operations between arrays
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logical-operations-and-indexing">
-   Logical operations and indexing
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="images-as-arrays">
-<h1>2. Images as arrays<a class="headerlink" href="#images-as-arrays" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="images-as-arrays">
+<h1>2. Images as arrays<a class="headerlink" href="#images-as-arrays" title="Permalink to this heading">#</a></h1>
 <p>At the end of the introduction we have seen that images are imported as a specific data structure called an <code class="docutils literal notranslate"><span class="pre">array</span></code>. These arrays are implemented by a package called Numpy which is foundational to the entire scientific Python ecosystem: as soon as you have to perform numerical computations, it’s very likely that you will use Numpy arrays. Here we give an introduction to these arrays, specifically using images as examples.</p>
 <p>Let us first import the Numpy package as well as scikit-image which will allow us to import images and Matplotlib with which we can look at images:</p>
 <div class="cell docutils container">
@@ -437,12 +408,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02-Images_as_arrays_9_0.png" src="_images/02-Images_as_arrays_9_0.png" />
+<img alt="_images/e8e0deb2dd60eddc860024029bde2853a015cea80f4cf05952886acc0e296d5c.png" src="_images/e8e0deb2dd60eddc860024029bde2853a015cea80f4cf05952886acc0e296d5c.png" />
 </div>
 </div>
 <p>In addition to the <code class="docutils literal notranslate"><span class="pre">image</span></code> input we also used an <em>optional</em> parameter called <code class="docutils literal notranslate"><span class="pre">cmap</span></code> here and that allows us to set a certain colormap, here a gray one. You can find more here: <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html#sequential">https://matplotlib.org/stable/tutorials/colors/colormaps.html#sequential</a></p>
-<div class="section" id="accessing-values">
-<h2>Accessing values<a class="headerlink" href="#accessing-values" title="Permalink to this headline">¶</a></h2>
+<section id="accessing-values">
+<h2>Accessing values<a class="headerlink" href="#accessing-values" title="Permalink to this heading">#</a></h2>
 <p>We can again display part of the array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -502,9 +473,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>We see that we have indeed changed the value of that top left pixel!</p>
-</div>
-<div class="section" id="accessing-parts-of-the-array">
-<h2>Accessing parts of the array<a class="headerlink" href="#accessing-parts-of-the-array" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="accessing-parts-of-the-array">
+<h2>Accessing parts of the array<a class="headerlink" href="#accessing-parts-of-the-array" title="Permalink to this heading">#</a></h2>
 <p>Very often we don’t need to access a single pixel, but an entire region. In other terms we want to <strong>crop</strong> the image. Let’s look again at the image:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -513,7 +484,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02-Images_as_arrays_20_0.png" src="_images/02-Images_as_arrays_20_0.png" />
+<img alt="_images/910e2db50f65c7debffe1d753b5cb5b66e6efa71c6457267daf2113f7eee759f.png" src="_images/910e2db50f65c7debffe1d753b5cb5b66e6efa71c6457267daf2113f7eee759f.png" />
 </div>
 </div>
 <p>Let’s say we want to focus our attention on a region in the middle of the image. We can for example take the rows 400-530 and columns 400-600. Instead of just using single coordinates we can now extract that part of the image using a <strong>range</strong> of pixels, the range being indicated via the <code class="docutils literal notranslate"><span class="pre">:</span></code> symbol. Here we write:</p>
@@ -552,7 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02-Images_as_arrays_26_0.png" src="_images/02-Images_as_arrays_26_0.png" />
+<img alt="_images/ced9cd35e05dc074ed438119164b8038f140fb2507a04d00a39acab4c0b3ce95.png" src="_images/ced9cd35e05dc074ed438119164b8038f140fb2507a04d00a39acab4c0b3ce95.png" />
 </div>
 </div>
 <p>We can also check again the size of this cropped image. We expect 130 rows and 200 columns:</p>
@@ -594,9 +565,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="other-ways-of-creating-arrays">
-<h2>Other ways of creating arrays<a class="headerlink" href="#other-ways-of-creating-arrays" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="other-ways-of-creating-arrays">
+<h2>Other ways of creating arrays<a class="headerlink" href="#other-ways-of-creating-arrays" title="Permalink to this heading">#</a></h2>
 <p>In addition to create arrays by importing them, we can also generate them using Numpy functions. This can be useful to initialize some array that we can then re-use later.</p>
 <p>There are many different types of arrays that we can create. For example we can create arrays that only contain <code class="docutils literal notranslate"><span class="pre">0</span></code>s or <code class="docutils literal notranslate"><span class="pre">1</span></code>s and have a certain shape, e.g. 5 rows and 3 columns, using the <code class="docutils literal notranslate"><span class="pre">np.zeros()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.ones()</span></code> functions:</p>
 <div class="cell docutils container">
@@ -659,12 +630,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mathematics-with-arrays">
-<h2>Mathematics with arrays<a class="headerlink" href="#mathematics-with-arrays" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mathematics-with-arrays">
+<h2>Mathematics with arrays<a class="headerlink" href="#mathematics-with-arrays" title="Permalink to this heading">#</a></h2>
 <p>Now that we know how to create or import an array, we can start to do mathematics, or in our case image processing, with these arrays. The advantage of these structures is that we can do mathematics as if we were using plain numbers.</p>
-<div class="section" id="basic-calculus">
-<h3>Basic calculus<a class="headerlink" href="#basic-calculus" title="Permalink to this headline">¶</a></h3>
+<section id="basic-calculus">
+<h3>Basic calculus<a class="headerlink" href="#basic-calculus" title="Permalink to this heading">#</a></h3>
 <p>For example we can write the mathematical statement <span class="math notranslate nohighlight">\(y = x + 3\)</span>, and we can write the same thing with an entire array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,9 +741,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Again, this is not some kind of matrix operation, <strong>the squaring operation is applied element-wise</strong>.</p>
-</div>
-<div class="section" id="numpy-functions">
-<h3>Numpy functions<a class="headerlink" href="#numpy-functions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="numpy-functions">
+<h3>Numpy functions<a class="headerlink" href="#numpy-functions" title="Permalink to this heading">#</a></h3>
 <p>In addition to this simple arithmetic, we can apply <strong>entire functions</strong> to these arrays. In particular Numpy has a wide range of functions that take arrays as inputs. For example, we can take the cosine of each element in an image using the <code class="docutils literal notranslate"><span class="pre">np.cos()</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -874,9 +845,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="operations-between-arrays">
-<h3>Operations between arrays<a class="headerlink" href="#operations-between-arrays" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="operations-between-arrays">
+<h3>Operations between arrays<a class="headerlink" href="#operations-between-arrays" title="Permalink to this heading">#</a></h3>
 <p>Above we have only seen operations that use a <em>single</em> array and that either modified the array or calculated some statistic. But we can also <strong>combine</strong> arrays in different ways, for example we can add two arrays. Again the operation happens <strong>element-wise</strong> and because of this we have to ensure that the two arrays have the <strong>same dimensions</strong>. If they don’t Numpy doesn’t know what to do with pixels that don’t have an equivalent in the other array.</p>
 <p>As we are studying image processing, let’s simulate noise in our image. We will take our <code class="docutils literal notranslate"><span class="pre">cropped</span></code> and add to it some noise (this is commonly done to test algorithms in degraded conditions). Let’s use again Poisson noise. Now we need to make sure that we create a noise-image that has the correct dimensions. Those are:</p>
 <div class="cell docutils container">
@@ -914,7 +885,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02-Images_as_arrays_70_0.png" src="_images/02-Images_as_arrays_70_0.png" />
+<img alt="_images/005b8bd93a78f15a6c6d2e3b16863f93cf8bdae932a2c7daee01d28bbb432875.png" src="_images/005b8bd93a78f15a6c6d2e3b16863f93cf8bdae932a2c7daee01d28bbb432875.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -924,14 +895,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02-Images_as_arrays_71_0.png" src="_images/02-Images_as_arrays_71_0.png" />
+<img alt="_images/ff7f9e978b5003186b416c1f6306f336b18269c66f4eabc4106ed4f74d8ba4ce.png" src="_images/ff7f9e978b5003186b416c1f6306f336b18269c66f4eabc4106ed4f74d8ba4ce.png" />
 </div>
 </div>
 <p>You can essentially use all common mathematical operations with arrays of same size.</p>
-</div>
-</div>
-<div class="section" id="logical-operations-and-indexing">
-<h2>Logical operations and indexing<a class="headerlink" href="#logical-operations-and-indexing" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="logical-operations-and-indexing">
+<h2>Logical operations and indexing<a class="headerlink" href="#logical-operations-and-indexing" title="Permalink to this heading">#</a></h2>
 <p>The last important topic concerns logical operations such as <span class="math notranslate nohighlight">\(a &gt; 3\)</span>. In basic Python we can use these kind of statements:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1046,7 +1017,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1647060a0&gt;
 </pre></div>
 </div>
-<img alt="_images/02-Images_as_arrays_86_1.png" src="_images/02-Images_as_arrays_86_1.png" />
+<img alt="_images/328bf9bd0b975cdca84a68ae4549e3217b87b363bf026104ca0918c558dc80c4.png" src="_images/328bf9bd0b975cdca84a68ae4549e3217b87b363bf026104ca0918c558dc80c4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1056,7 +1027,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02-Images_as_arrays_87_0.png" src="_images/02-Images_as_arrays_87_0.png" />
+<img alt="_images/005b8bd93a78f15a6c6d2e3b16863f93cf8bdae932a2c7daee01d28bbb432875.png" src="_images/005b8bd93a78f15a6c6d2e3b16863f93cf8bdae932a2c7daee01d28bbb432875.png" />
 </div>
 </div>
 <p>One very important operation that we can use now is to combine the image with the boolean array <strong>to extract only the <code class="docutils literal notranslate"><span class="pre">True</span></code> values</strong> from the image. You can imagine of using the logical array as a mask, superposing it onto the image and extracting only the pixel that are visible through the white regions. The drawing below explains this concept:</p>
@@ -1084,7 +1055,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>As you can see, the output is just 1D array, a list of numbers. Imagine that you want to estimate the average fluorescent intensity in those structures. This is exactly how we would proceed:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Find the objects of interest. Here we did it by (bad) manual thresholding</p></li>
 <li><p>Find which pixels belong to these objects. This is done here using the above <strong>logical indexing</strong> <code class="docutils literal notranslate"><span class="pre">cropped[array_bool]</span></code></p></li>
 <li><p>Finally compute the average of those values. This can simply be achieved by taking the <code class="docutils literal notranslate"><span class="pre">mean</span></code> of the above array:</p></li>
@@ -1102,8 +1073,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1117,7 +1088,7 @@ const thebe_selector_output = ".output, .cell_output"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1125,44 +1096,114 @@ const thebe_selector_output = ".output, .cell_output"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="01-Python_essentials.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">1. Python and notebook basics</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-Python_essentials.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1. Python and notebook basics</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="03-More_on_images.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="03-More_on_images.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">3. More on images</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Guillaume Witz<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-values">Accessing values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-parts-of-the-array">Accessing parts of the array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ways-of-creating-arrays">Other ways of creating arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics-with-arrays">Mathematics with arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-calculus">Basic calculus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-functions">Numpy functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-between-arrays">Operations between arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations-and-indexing">Logical operations and indexing</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Guillaume Witz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

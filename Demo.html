@@ -1,362 +1,335 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Demo &#8212; Image processing with Python for beginners</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Demo';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Cheetsheet" href="Cheatsheet.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Image processing with Python for beginners</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
-   Image processing for beginners
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01-Python_essentials.html">
-   1. Python and notebook basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02-Images_as_arrays.html">
-   2. Images as arrays
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-More_on_images.html">
-   3. More on images
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-Thresholding.html">
-   4. Thresholding
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-Filtering.html">
-   5. Filtering
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-Regions.html">
-   6. Region properties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07-Pipeline.html">
-   7. Creating a pipeline
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08-Logical_flow.html">
-   8. Loops and conditions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09-Advanced.html">
-   9. Advanced examples: cellpose and napari
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Appendix_Functions.html">
-   Methods and functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Appendix_Structures.html">
-   Python structures
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cheatsheet.html">
-   Cheetsheet
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo
-  </a>
- </li>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Image processing with Python for beginners</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Image processing for beginners
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-Python_essentials.html">1. Python and notebook basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Images_as_arrays.html">2. Images as arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-More_on_images.html">3. More on images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Thresholding.html">4. Thresholding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-Filtering.html">5. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-Regions.html">6. Region properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-Pipeline.html">7. Creating a pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-Logical_flow.html">8. Loops and conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-Advanced.html">9. Advanced examples: cellpose and napari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix_Functions.html">Methods and functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix_Structures.html">Python structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cheatsheet.html">Cheetsheet</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Demo.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Demo.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
         
-        
-        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Demo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Demo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#complete-workflow">
-   Complete workflow
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-image">
-   Import image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filter-the-image">
-   Filter the image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#automated-threshold">
-   Automated threshold
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clean-up-with-morphological-operations">
-   Clean-up with morphological operations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compute-a-band-around-the-nuclei">
-   Compute a band around the nuclei
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#label-nuclei-and-band-and-measure-properties">
-   Label nuclei and band and measure properties
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#post-processing-stats">
-   Post-processing: stats
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-workflow">Complete workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-image">Import image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-the-image">Filter the image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-threshold">Automated threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-up-with-morphological-operations">Clean-up with morphological operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-a-band-around-the-nuclei">Compute a band around the nuclei</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#label-nuclei-and-band-and-measure-properties">Label nuclei and band and measure properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing-stats">Post-processing: stats</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Demo</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#complete-workflow">
-   Complete workflow
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-image">
-   Import image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filter-the-image">
-   Filter the image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#automated-threshold">
-   Automated threshold
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clean-up-with-morphological-operations">
-   Clean-up with morphological operations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compute-a-band-around-the-nuclei">
-   Compute a band around the nuclei
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#label-nuclei-and-band-and-measure-properties">
-   Label nuclei and band and measure properties
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#post-processing-stats">
-   Post-processing: stats
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="demo">
-<h1>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="demo">
+<h1>Demo<a class="headerlink" href="#demo" title="Permalink to this heading">#</a></h1>
 <p>In this course you can learn the basics of image processing with Python and scikit-image. In particular you can learn about:</p>
 <ul class="simple">
 <li><p>strict basics of Python to get through the course</p></li>
@@ -365,8 +338,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>The present notebook demonstrates the sort of complete workflow that one can create with such tools. So that people already using Fiji macros have a reference point, this example follows the workflow demonstrated in the <a class="reference external" href="https://github.com/ahklemm/ImageJMacro_Introduction">NEUBIAS Academy course on Fiji Macro Programming</a> given by Anna Klemm.  The example uses images from the <a class="reference external" href="https://www.proteinatlas.org/humanproteome/cell">Cell Atlas</a> of the Human Protein Atlas (HPA) project where a large collection of proteins have been tagged and imaged to determine their cellular location. Specifically, we downloaded a series of <span class="xref myst">images</span> from the Atlas, with some cells showing nucleoplasm localization and some nuclear membrane localization. The idea of the workflow is to compare the signal within the nucleus with that on its edge to determine for each image whether the protein is membrane bound or not.</p>
 <p>For more information  on the dataset, see the publication of Thul PJ et al., A subcellular map of the human proteome. <strong>Science</strong>. (2017) DOI: <a class="reference external" href="https://doi.org/10.1126/science.aal3321">10.1126/science.aal3321</a>. All images are covered by a <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>
-<div class="section" id="complete-workflow">
-<h2>Complete workflow<a class="headerlink" href="#complete-workflow" title="Permalink to this headline">¶</a></h2>
+<section id="complete-workflow">
+<h2>Complete workflow<a class="headerlink" href="#complete-workflow" title="Permalink to this heading">#</a></h2>
 <p>We first demonstrate here the complete workflow and break it down in parts in the following sections. First we import packages, load to images and display them to have a feeling of the content:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -391,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_3_0.png" src="_images/Demo_3_0.png" />
+<img alt="_images/76380ab2ed0d16630c10d1dbd73d3f57d895ef6b0d9b7e046fea31697ec37751.png" src="_images/76380ab2ed0d16630c10d1dbd73d3f57d895ef6b0d9b7e046fea31697ec37751.png" />
 </div>
 </div>
 <p>Then we run the analysis on the full dataset:</p>
@@ -438,8 +411,8 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">temp_ratio</span> <span class="o">=</span> <span class="n">measure_eroded</span><span class="p">[</span><span class="s1">&#39;mean_intensity&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">edge_dict</span><span class="p">[</span><span class="n">measure_eroded</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span>
         <span class="n">image_ratio</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_ratio</span><span class="p">)</span>
     <span class="n">ratios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">image_ratio</span><span class="p">))</span>
-    
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    ## More elegant solution with Pandas df</span>
 <span class="sd">    # turn results into dataframes</span>
 <span class="sd">    measure_eroded_df = pd.DataFrame(measure_eroded)</span>
@@ -471,7 +444,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_6_0.png" src="_images/Demo_6_0.png" />
+<img alt="_images/6753c2f005a02ae3ad34dc735dd747eecc1461491cb4308d5ce739578bf60814.png" src="_images/6753c2f005a02ae3ad34dc735dd747eecc1461491cb4308d5ce739578bf60814.png" />
 </div>
 </div>
 <p>In the end we obtain a list of ratios for each image and we can set a threshold on what qualifies as “enriched on the nuclear membrane” e.g. at 1.</p>
@@ -487,13 +460,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_9_0.png" src="_images/Demo_9_0.png" />
+<img alt="_images/0dd90db755dea8c02e6d034a0c26c83524f4dd68acc19d7a65868e30b253a0ae.png" src="_images/0dd90db755dea8c02e6d034a0c26c83524f4dd68acc19d7a65868e30b253a0ae.png" />
 </div>
 </div>
 <p>Our analysis allows us indeed to automatically find which proteins are enriched on the membrane!</p>
-</div>
-<div class="section" id="import-image">
-<h2>Import image<a class="headerlink" href="#import-image" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="import-image">
+<h2>Import image<a class="headerlink" href="#import-image" title="Permalink to this heading">#</a></h2>
 <p>First we use <code class="docutils literal notranslate"><span class="pre">skimage.io.imread</span></code> to import the images. One can use the function to import from disk or from a server:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -503,12 +476,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_12_0.png" src="_images/Demo_12_0.png" />
+<img alt="_images/b1f54d58dc7c9371b07ec6a8b21a6b01ed987277a029fb79a93fe8ed554cc9a4.png" src="_images/b1f54d58dc7c9371b07ec6a8b21a6b01ed987277a029fb79a93fe8ed554cc9a4.png" />
 </div>
 </div>
-</div>
-<div class="section" id="filter-the-image">
-<h2>Filter the image<a class="headerlink" href="#filter-the-image" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="filter-the-image">
+<h2>Filter the image<a class="headerlink" href="#filter-the-image" title="Permalink to this heading">#</a></h2>
 <p>To obtain a smoother segmentation, we filter the nuclei images with a median filter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -524,12 +497,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_15_0.png" src="_images/Demo_15_0.png" />
+<img alt="_images/9d2848351f0c882362489965277033e04e3394f4d4891ddc373cc22011f84cc1.png" src="_images/9d2848351f0c882362489965277033e04e3394f4d4891ddc373cc22011f84cc1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="automated-threshold">
-<h2>Automated threshold<a class="headerlink" href="#automated-threshold" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="automated-threshold">
+<h2>Automated threshold<a class="headerlink" href="#automated-threshold" title="Permalink to this heading">#</a></h2>
 <p>We now isolate the nuclei by setting an intensity threshold automatically using the Otsu method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,12 +513,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_17_0.png" src="_images/Demo_17_0.png" />
+<img alt="_images/142b424783094ae506c63e9db48d5f9d5ef2e3d584fb89d1d18a2293e799c50f.png" src="_images/142b424783094ae506c63e9db48d5f9d5ef2e3d584fb89d1d18a2293e799c50f.png" />
 </div>
 </div>
-</div>
-<div class="section" id="clean-up-with-morphological-operations">
-<h2>Clean-up with morphological operations<a class="headerlink" href="#clean-up-with-morphological-operations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="clean-up-with-morphological-operations">
+<h2>Clean-up with morphological operations<a class="headerlink" href="#clean-up-with-morphological-operations" title="Permalink to this heading">#</a></h2>
 <p>We still have some debris and holes in the nuclei. We can use morphological operation to fix these problems:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -562,12 +535,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_20_0.png" src="_images/Demo_20_0.png" />
+<img alt="_images/41bdad380885b140129e0236fbba4a309ed0c6ded9f13ae6ed386fb98c0a98ed.png" src="_images/41bdad380885b140129e0236fbba4a309ed0c6ded9f13ae6ed386fb98c0a98ed.png" />
 </div>
 </div>
-</div>
-<div class="section" id="compute-a-band-around-the-nuclei">
-<h2>Compute a band around the nuclei<a class="headerlink" href="#compute-a-band-around-the-nuclei" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="compute-a-band-around-the-nuclei">
+<h2>Compute a band around the nuclei<a class="headerlink" href="#compute-a-band-around-the-nuclei" title="Permalink to this heading">#</a></h2>
 <p>Now we need to measure intensity in two different non-overlapping regions: inside the nuclei and on their border. To obtain the region <strong>inside</strong> the nuclei we simply erode their borders. Once we have such <em>smaller</em> nuclei, we can just subtract them from the original <em>larger</em> ones and obtain a band corresponding to the membrane. The size of this border depends on how much we eroded in the first place:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -579,12 +552,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Demo_22_0.png" src="_images/Demo_22_0.png" />
+<img alt="_images/d247a2d1e10dcd61b685242af50d89b1530b9607a880931f71695e69fcbf6c22.png" src="_images/d247a2d1e10dcd61b685242af50d89b1530b9607a880931f71695e69fcbf6c22.png" />
 </div>
 </div>
-</div>
-<div class="section" id="label-nuclei-and-band-and-measure-properties">
-<h2>Label nuclei and band and measure properties<a class="headerlink" href="#label-nuclei-and-band-and-measure-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="label-nuclei-and-band-and-measure-properties">
+<h2>Label nuclei and band and measure properties<a class="headerlink" href="#label-nuclei-and-band-and-measure-properties" title="Permalink to this heading">#</a></h2>
 <p>Now that we have pairs of binary masks, for nucleoplasm and nuclear membrane, we can label <em>connected</em> regions to measure them. We actually first label the <em>original</em> segmentation and only <em>then</em> mask those labels with the two binary segmentations in order to have the <em>same</em> labels for both, so that we can compare them. Once we have labelled regions we can measure for each element (particle in Fiji) multiple properties such as the <code class="docutils literal notranslate"><span class="pre">area</span></code> but also e.g. <code class="docutils literal notranslate"><span class="pre">mean_intensity</span></code> in the other channel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -595,9 +568,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="post-processing-stats">
-<h2>Post-processing: stats<a class="headerlink" href="#post-processing-stats" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="post-processing-stats">
+<h2>Post-processing: stats<a class="headerlink" href="#post-processing-stats" title="Permalink to this heading">#</a></h2>
 <p>Finally, we want to measure the ratio of the intensity in the two segmentations. We could do it using Pandas dataframes but since this course doesn’t focus on that package we do it manually. We first create a dictionary with labels as keys and mean intensity on the membrane as values. We then use this dictionary as a lookup table to match objects in both segmentations and calculate the intensity ratio:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,8 +624,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -666,7 +639,7 @@ const thebe_selector_output = ".output, .cell_output"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -674,37 +647,103 @@ const thebe_selector_output = ".output, .cell_output"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Cheatsheet.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cheetsheet</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-workflow">Complete workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-image">Import image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-the-image">Filter the image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-threshold">Automated threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-up-with-morphological-operations">Clean-up with morphological operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-a-band-around-the-nuclei">Compute a band around the nuclei</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#label-nuclei-and-band-and-measure-properties">Label nuclei and band and measure properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing-stats">Post-processing: stats</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Cheatsheet.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Cheetsheet</p>
-        </div>
-    </a>
-</div>
+          </div>
+          <footer class="bd-footer-content">
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Guillaume Witz<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+<div class="bd-footer-content__inner container">
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Guillaume Witz
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
